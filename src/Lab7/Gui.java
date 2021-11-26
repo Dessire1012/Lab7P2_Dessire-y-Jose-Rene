@@ -822,8 +822,7 @@ public class Gui extends javax.swing.JFrame {
             int precio = 0; 
             int cantidad = 0;
 
-            bw.write();
-
+            
             bw.flush();
         } catch (Exception ex) {
         }
