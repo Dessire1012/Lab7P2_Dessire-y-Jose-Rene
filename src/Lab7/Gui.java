@@ -4,6 +4,12 @@
  * and open the template in the editor.
  */
 package Lab7;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Random;
 
 /**
  *
@@ -16,6 +22,37 @@ public class Gui extends javax.swing.JFrame {
      */
     public Gui() {
         initComponents();
+        int dinero;
+        dinero = (int)(Math.random() * (8000 - 1000) + 1000);
+        
+        usuarios.add(new Admin("Luisillo", "No", 20));
+        usuarios.add(new Compradores(dinero, "Latesito", "Sheesh", 20));
+        File archivo = null;
+        FileWriter fw = null;
+        BufferedWriter bw = null;
+        
+        
+        try {
+            archivo = new File ("Usuarios.txt");
+            fw = new FileWriter (archivo, true);
+            bw = new BufferedWriter(fw);
+            
+            bw.write("Administrador");
+            bw.write(usuarios.get(0).getUsuario() + "/");
+            bw.write(usuarios.get(0).getContraseña() + "/");
+            bw.write(usuarios.get(0).getEdad());
+            bw.write("Comprador");
+            bw.write(usuarios.get(1).getUsuario() + "/");
+            bw.write(usuarios.get(1).getContraseña() + "/");
+            bw.write(usuarios.get(1).getEdad());
+            
+              bw.flush();
+        } catch (Exception e) {
+             e.printStackTrace();
+        }
+        
+        bw.close();
+        fw.close();
        
     /**
      * This method is called from within the constructor to initialize the form.
@@ -642,4 +679,5 @@ public class Gui extends javax.swing.JFrame {
     private javax.swing.JTextField nombreTxtResgister;
     private java.awt.ScrollPane scrollPane1;
     // End of variables declaration//GEN-END:variables
- }
+ArrayList <Usuarios> usuarios = new ArrayList(); 
+}
