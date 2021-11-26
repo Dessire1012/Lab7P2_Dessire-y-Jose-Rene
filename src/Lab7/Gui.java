@@ -42,6 +42,7 @@ public class Gui extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        RegistroFrame = new javax.swing.JFrame();
         RegisterFrame = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
@@ -54,6 +55,7 @@ public class Gui extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         PasswordtxtRegister = new javax.swing.JTextField();
         BotonREgistrarseRegistrar = new javax.swing.JButton();
+        AdminP = new javax.swing.JFrame();
         AdminPanel = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
         BotonLogOut = new javax.swing.JButton();
@@ -84,6 +86,7 @@ public class Gui extends javax.swing.JFrame {
         jLabel18 = new javax.swing.JLabel();
         jComboBoxEliminarAdmin = new javax.swing.JComboBox<>();
         NombrePanelAdmin = new javax.swing.JLabel();
+        CompradorP = new javax.swing.JFrame();
         CompradorPanel = new javax.swing.JPanel();
         CompradorLabel = new javax.swing.JLabel();
         NombrelabelComprador1 = new javax.swing.JLabel();
@@ -202,6 +205,27 @@ public class Gui extends javax.swing.JFrame {
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
+        javax.swing.GroupLayout RegistroFrameLayout = new javax.swing.GroupLayout(RegistroFrame.getContentPane());
+        RegistroFrame.getContentPane().setLayout(RegistroFrameLayout);
+        RegistroFrameLayout.setHorizontalGroup(
+            RegistroFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(RegistroFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(RegistroFrameLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(RegisterFrame, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
+        RegistroFrameLayout.setVerticalGroup(
+            RegistroFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(RegistroFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(RegistroFrameLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(RegisterFrame, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
+
         jLabel10.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jLabel10.setText("Administrador:");
 
@@ -214,9 +238,9 @@ public class Gui extends javax.swing.JFrame {
         jLabel14.setText("Cantidad:");
 
         jButton3.setText("Crear");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+        jButton3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton3MouseClicked(evt);
             }
         });
 
@@ -446,6 +470,27 @@ public class Gui extends javax.swing.JFrame {
                 .addComponent(jTabbedPane1))
         );
 
+        javax.swing.GroupLayout AdminPLayout = new javax.swing.GroupLayout(AdminP.getContentPane());
+        AdminP.getContentPane().setLayout(AdminPLayout);
+        AdminPLayout.setHorizontalGroup(
+            AdminPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(AdminPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(AdminPLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(AdminPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
+        AdminPLayout.setVerticalGroup(
+            AdminPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(AdminPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(AdminPLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(AdminPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
+
         CompradorLabel.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         CompradorLabel.setText("Comprador:");
 
@@ -578,6 +623,27 @@ public class Gui extends javax.swing.JFrame {
                 .addComponent(jTabbedPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 364, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
+        javax.swing.GroupLayout CompradorPLayout = new javax.swing.GroupLayout(CompradorP.getContentPane());
+        CompradorP.getContentPane().setLayout(CompradorPLayout);
+        CompradorPLayout.setHorizontalGroup(
+            CompradorPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(CompradorPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(CompradorPLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(CompradorPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
+        CompradorPLayout.setVerticalGroup(
+            CompradorPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(CompradorPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(CompradorPLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(CompradorPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(204, 255, 255));
@@ -698,12 +764,18 @@ public class Gui extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(this, "Usuario encontrado");
 
                 if (u instanceof Compradores) {
-                    CompradorPanel.setVisible(true);
+                    CompradorP.pack();// aparece con el tamano de los botones
+
+                    CompradorP.setLocationRelativeTo(this);//es para centrar la ventana emergente con la anterior
+                    CompradorP.setVisible(true);
                     
                 }
 
                 if (u instanceof Admin) {
-                    AdminPanel.setVisible(true);
+                     AdminP.pack();// aparece con el tamano de los botones
+
+                    AdminP.setLocationRelativeTo(this);//es para centrar la ventana emergente con la anterior
+                    AdminP.setVisible(true);
                 }
             }
         }
@@ -731,13 +803,35 @@ public class Gui extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_nombreTxtResgisterActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
-
     private void NombreTxtModificarAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NombreTxtModificarAdminActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_NombreTxtModificarAdminActionPerformed
+
+    private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
+        File acce = null;
+        FileWriter fw = null;
+        BufferedWriter bw = null;
+        try {
+            acce = new File ("./Accesorios.txt");
+            fw = new FileWriter(acce, true);
+            bw = new BufferedWriter(fw);
+            
+            bw.write(WIDTH);
+            
+            bw.flush();
+        } catch (Exception ex) {
+        }
+        try {
+            bw.close();
+        } catch (IOException ex) {
+            Logger.getLogger(Gui.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        try {
+            fw.close();
+        } catch (IOException ex) {
+            Logger.getLogger(Gui.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jButton3MouseClicked
 
     /**
      * @param args the command line arguments
@@ -779,6 +873,7 @@ public class Gui extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JFrame AdminP;
     private javax.swing.JPanel AdminPanel;
     private javax.swing.JButton BotonEliminarAdmin;
     private javax.swing.JButton BotonLogOut;
@@ -787,6 +882,7 @@ public class Gui extends javax.swing.JFrame {
     private javax.swing.JButton BotonREgistrarseRegistrar;
     private javax.swing.JButton BotonRegistrar;
     private javax.swing.JLabel CompradorLabel;
+    private javax.swing.JFrame CompradorP;
     private javax.swing.JPanel CompradorPanel;
     private javax.swing.JButton ComprarComprador;
     private javax.swing.JLabel DineroRestanteComprador;
@@ -800,6 +896,7 @@ public class Gui extends javax.swing.JFrame {
     private javax.swing.JLabel NombrelabelComprador1;
     private javax.swing.JTextField PasswordtxtRegister;
     private javax.swing.JPanel RegisterFrame;
+    private javax.swing.JFrame RegistroFrame;
     private javax.swing.JTable TablaAccesoriosAdmin;
     private javax.swing.JTable TablaComprado;
     private javax.swing.JTable TablaComprar;
