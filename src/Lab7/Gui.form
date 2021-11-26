@@ -523,10 +523,8 @@
                           <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
                               <Component id="BotonEliminarAdmin" pref="281" max="32767" attributes="0"/>
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="jLabel18" alignment="0" pref="281" max="32767" attributes="0"/>
-                                  <Component id="jComboBoxEliminarAdmin" alignment="0" max="32767" attributes="0"/>
-                              </Group>
+                              <Component id="jLabel18" alignment="0" pref="281" max="32767" attributes="0"/>
+                              <Component id="jComboBoxEliminarAdmin" alignment="0" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace pref="297" max="32767" attributes="0"/>
                       </Group>
@@ -905,7 +903,6 @@
           </Properties>
           <Events>
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jButton1MouseClicked"/>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel4">

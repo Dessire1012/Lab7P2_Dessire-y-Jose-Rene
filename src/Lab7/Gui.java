@@ -5,19 +5,57 @@
  */
 package Lab7;
 
-/**
- *
- * @author jrgir
- */
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Random;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+
 public class Gui extends javax.swing.JFrame {
 
     /**
      * Creates new form Gui
      */
-    public Gui() {
+    public Gui() throws IOException {
         initComponents();
-    }
-
+        int dinero;
+        dinero = (int)(Math.random() * (8000 - 1000) + 1000);
+        
+        usuarios.add(new Admin("Luisillo", "No", 20));
+        usuarios.add(new Compradores(dinero, "Latesito", "Sheesh", 20));
+        File archivo = null;
+        FileWriter fw = null;
+        BufferedWriter bw = null;
+        
+        
+        try {
+            archivo = new File ("Usuarios.txt");
+            fw = new FileWriter (archivo, true);
+            bw = new BufferedWriter(fw);
+            
+            bw.write("Administrador");
+            bw.write(usuarios.get(0).getUsuario() + "/");
+            bw.write(usuarios.get(0).getContraseña() + "/");
+            bw.write(usuarios.get(0).getEdad());
+            bw.write("Comprador");
+            bw.write(usuarios.get(1).getUsuario() + "/");
+            bw.write(usuarios.get(1).getContraseña() + "/");
+            bw.write(usuarios.get(1).getEdad());
+            
+              bw.flush();
+        } catch (Exception e) {
+             e.printStackTrace();
+        }
+        
+        bw.close();
+        fw.close();
+    
+        
+    } 
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -559,11 +597,6 @@ public class Gui extends javax.swing.JFrame {
                 jButton1MouseClicked(evt);
             }
         });
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
 
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel4.setText("¿No tienes una cuenta?");
@@ -668,13 +701,8 @@ public class Gui extends javax.swing.JFrame {
         String username = TextoUsername.getText();
         String pass = TextoPassWord.getText();
 
-       
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1MouseClicked
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
 
     private void BotonRegistrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BotonRegistrarMouseClicked
         // TODO add your handling code here:
@@ -735,7 +763,11 @@ public class Gui extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Gui().setVisible(true);
+                try {
+                    new Gui().setVisible(true);
+                } catch (IOException ex) {
+                    Logger.getLogger(Gui.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }
@@ -807,4 +839,5 @@ public class Gui extends javax.swing.JFrame {
     private javax.swing.JTabbedPane jTabbedPane2;
     private javax.swing.JTextField nombreTxtResgister;
     // End of variables declaration//GEN-END:variables
+  ArrayList <Usuarios> usuarios = new ArrayList();
 }
