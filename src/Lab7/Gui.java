@@ -699,7 +699,7 @@ public class Gui extends javax.swing.JFrame {
 
                 if (u instanceof Compradores) {
                     CompradorPanel.setVisible(true);
-
+                    
                 }
 
                 if (u instanceof Admin) {
