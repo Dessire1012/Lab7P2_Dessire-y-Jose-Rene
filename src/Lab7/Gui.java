@@ -131,6 +131,11 @@ public class Gui extends javax.swing.JFrame {
         jLabel9.setText("Password");
 
         BotonREgistrarseRegistrar.setText("Registrarse");
+        BotonREgistrarseRegistrar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                BotonREgistrarseRegistrarMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -209,7 +214,7 @@ public class Gui extends javax.swing.JFrame {
         RegistroFrame.getContentPane().setLayout(RegistroFrameLayout);
         RegistroFrameLayout.setHorizontalGroup(
             RegistroFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGap(0, 464, Short.MAX_VALUE)
             .addGroup(RegistroFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(RegistroFrameLayout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
@@ -218,7 +223,7 @@ public class Gui extends javax.swing.JFrame {
         );
         RegistroFrameLayout.setVerticalGroup(
             RegistroFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGap(0, 405, Short.MAX_VALUE)
             .addGroup(RegistroFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(RegistroFrameLayout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
@@ -832,6 +837,26 @@ public class Gui extends javax.swing.JFrame {
             Logger.getLogger(Gui.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_jButton3MouseClicked
+
+    private void BotonREgistrarseRegistrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BotonREgistrarseRegistrarMouseClicked
+        String pass = PasswordtxtRegister.getText();
+        String Username = UsernametxtRegister.getText();
+        int edad = Integer.getInteger(EdadFormatedTxtRegister.getText());
+
+        for (Usuarios u : adminU.getListaU()) {
+            if (Username.equals(u.getUsuario()) && pass.equals(u.getContraseña())) {
+                JOptionPane.showMessageDialog(this, "Usuario ya Existe");
+
+            } else {
+                try {
+                    adminU.escribirArchivoR(Username, pass, edad);
+                } catch (IOException ex) {
+                    Logger.getLogger(Gui.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+
+            // TODO add your handling code here:
+    }//GEN-LAST:event_BotonREgistrarseRegistrarMouseClicked
 
     /**
      * @param args the command line arguments
