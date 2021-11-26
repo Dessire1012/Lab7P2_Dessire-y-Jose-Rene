@@ -1,14 +1,19 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Lab7;
 
-/**
- *
- * @author dessi
- */
-public class Compradores {
-    
+
+public class Compradores extends Usuarios{
+
+    public Compradores() {
+    }
+
+    public Compradores(String usuario, String contraseña, int edad) {
+        super(usuario, contraseña, edad);
+    }
+
+    @Override
+    public String toString() {
+        return super.toString();
+    }
+ 
 }

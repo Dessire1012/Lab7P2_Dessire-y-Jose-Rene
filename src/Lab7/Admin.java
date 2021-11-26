@@ -1,14 +1,19 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Lab7;
 
-/**
- *
- * @author jrgir
- */
-public class Admin {
+
+public class Admin extends Usuarios{
+
+    public Admin() {
+    }
+
+    public Admin(String usuario, String contraseña, int edad) {
+        super(usuario, contraseña, edad);
+    }
+
+    @Override
+    public String toString() {
+        return super.toString();
+    }
     
 }
