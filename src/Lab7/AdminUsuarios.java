@@ -41,8 +41,7 @@ public class AdminUsuarios {
             for (Usuarios u : listaU) {
                 bw.write(u.getUsuario() + "/");
                 bw.write(u.getContraseña() + "/");
-                bw.write(u.getEdad());
-
+                bw.write(String.valueOf(u.getEdad()));
                 bw.newLine();
             }
             bw.flush();
@@ -59,7 +58,7 @@ public class AdminUsuarios {
         if (archivo.exists()) {
             try {
                 sc = new Scanner(archivo);
-                sc.useDelimiter(";");
+                sc.useDelimiter("/");
                 while (sc.hasNext()) {
                     listaU.add(new Usuarios(sc.next(), sc.next(), sc.nextInt())
                     );
