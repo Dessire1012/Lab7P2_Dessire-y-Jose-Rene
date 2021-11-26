@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package Lab7;
+
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
@@ -13,16 +14,13 @@ import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-/**
- *
- * @author jrgir
- */
+
 public class Gui extends javax.swing.JFrame {
 
     /**
      * Creates new form Gui
      */
-    public Gui() {
+    public Gui() throws IOException {
         initComponents();
         int dinero;
         dinero = (int)(Math.random() * (8000 - 1000) + 1000);
@@ -53,17 +51,11 @@ public class Gui extends javax.swing.JFrame {
              e.printStackTrace();
         }
         
-        try {
-            bw.close();
-        } catch (IOException ex) {
-            Logger.getLogger(Gui.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        try {
-            fw.close();
-        } catch (IOException ex) {
-            Logger.getLogger(Gui.class.getName()).log(Level.SEVERE, null, ex);
-        }
-       
+        bw.close();
+        fw.close();
+    
+        
+    } 
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -563,7 +555,7 @@ public class Gui extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-} 
+
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
 
         String username = TextoUsername.getText();
@@ -631,7 +623,11 @@ public class Gui extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Gui().setVisible(true);
+                try {
+                    new Gui().setVisible(true);
+                } catch (IOException ex) {
+                    Logger.getLogger(Gui.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }
@@ -689,9 +685,5 @@ public class Gui extends javax.swing.JFrame {
     private javax.swing.JTextField nombreTxtResgister;
     private java.awt.ScrollPane scrollPane1;
     // End of variables declaration//GEN-END:variables
-ArrayList <Usuarios> usuarios = new ArrayList(); 
-
-    private void initComponents() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+  ArrayList <Usuarios> usuarios = new ArrayList();
 }
