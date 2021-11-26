@@ -142,10 +142,6 @@ public class Gui extends javax.swing.JFrame {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(130, 130, 130)
-                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(149, Short.MAX_VALUE))
-            .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addContainerGap()
@@ -166,15 +162,19 @@ public class Gui extends javax.swing.JFrame {
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jLabel8)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(BotonREgistrarseRegistrar, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(3, 3, 3)))
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(EdadFormatedTxtRegister, javax.swing.GroupLayout.DEFAULT_SIZE, 141, Short.MAX_VALUE)
-                    .addComponent(UsernametxtRegister))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(EdadFormatedTxtRegister, javax.swing.GroupLayout.DEFAULT_SIZE, 141, Short.MAX_VALUE)
+                            .addComponent(UsernametxtRegister)))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(130, 130, 130)
+                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 137, Short.MAX_VALUE)))
                 .addContainerGap())
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(158, 158, 158)
+                .addComponent(BotonREgistrarseRegistrar, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -479,7 +479,7 @@ public class Gui extends javax.swing.JFrame {
         AdminP.getContentPane().setLayout(AdminPLayout);
         AdminPLayout.setHorizontalGroup(
             AdminPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGap(0, 631, Short.MAX_VALUE)
             .addGroup(AdminPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(AdminPLayout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
@@ -488,7 +488,7 @@ public class Gui extends javax.swing.JFrame {
         );
         AdminPLayout.setVerticalGroup(
             AdminPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGap(0, 509, Short.MAX_VALUE)
             .addGroup(AdminPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(AdminPLayout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
@@ -770,15 +770,12 @@ public class Gui extends javax.swing.JFrame {
 
                 if (u instanceof Compradores) {
                     CompradorP.pack();// aparece con el tamano de los botones
-
                     CompradorP.setLocationRelativeTo(this);//es para centrar la ventana emergente con la anterior
                     CompradorP.setVisible(true);
-                    
                 }
 
                 if (u instanceof Admin) {
-                     AdminP.pack();// aparece con el tamano de los botones
-
+                    AdminP.pack();// aparece con el tamano de los botones
                     AdminP.setLocationRelativeTo(this);//es para centrar la ventana emergente con la anterior
                     AdminP.setVisible(true);
                 }
@@ -817,12 +814,16 @@ public class Gui extends javax.swing.JFrame {
         FileWriter fw = null;
         BufferedWriter bw = null;
         try {
-            acce = new File ("./Accesorios.txt");
+            acce = new File("./Accesorios.txt");
             fw = new FileWriter(acce, true);
             bw = new BufferedWriter(fw);
-            
-            bw.write(WIDTH);
-            
+            int ID = 0; 
+            String nombre = "";
+            int precio = 0; 
+            int cantidad = 0;
+
+            bw.write();
+
             bw.flush();
         } catch (Exception ex) {
         }
@@ -856,7 +857,7 @@ public class Gui extends javax.swing.JFrame {
             }
         }
 
-            // TODO add your handling code here:
+        // TODO add your handling code here:
     }//GEN-LAST:event_BotonREgistrarseRegistrarMouseClicked
 
     /**
