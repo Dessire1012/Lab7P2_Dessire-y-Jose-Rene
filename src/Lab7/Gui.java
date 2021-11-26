@@ -854,6 +854,7 @@ public class Gui extends javax.swing.JFrame {
                     Logger.getLogger(Gui.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
+        }
 
             // TODO add your handling code here:
     }//GEN-LAST:event_BotonREgistrarseRegistrarMouseClicked
