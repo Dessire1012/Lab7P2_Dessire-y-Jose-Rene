@@ -13,6 +13,7 @@ import java.util.ArrayList;
 import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 
 public class Gui extends javax.swing.JFrame {
@@ -677,7 +678,12 @@ public class Gui extends javax.swing.JFrame {
         String username = TextoUsername.getText();
         String pass = TextoPassWord.getText();
         
-        // TODO add your handling code here:
+        for (Usuarios u: adminU.getListaU()){
+            if (username.equals(u.getUsuario()) && pass.equals(u.getContraseña())){
+                JOptionPane.showMessageDialog(this, "Usuario encontrado");
+            }
+        }
+        
     }//GEN-LAST:event_jButton1MouseClicked
 
     private void BotonRegistrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BotonRegistrarMouseClicked
