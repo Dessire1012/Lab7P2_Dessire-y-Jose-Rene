@@ -68,5 +68,24 @@ public class AdminUsuarios {
             sc.close();
         }//FIN IF
     }
+    
+     public void escribirArchivoR(String usuario, String contraseña, int edad) throws IOException {
+        FileWriter fw = null;
+        BufferedWriter bw = null;
+        try {
+            fw = new FileWriter(archivo, false);
+            bw = new BufferedWriter(fw);
+            for (Usuarios u : listaU) {
+                bw.write(usuario + "/");
+                bw.write(contraseña + "/");
+                bw.write(String.valueOf(edad));
+                bw.newLine();
+            }
+            bw.flush();
+        } catch (Exception ex) {
+        }
+        bw.close();
+        fw.close();
+    } 
 
 }
