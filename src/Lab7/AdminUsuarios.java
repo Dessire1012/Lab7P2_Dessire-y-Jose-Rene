@@ -12,7 +12,8 @@ public class AdminUsuarios {
     private ArrayList<Usuarios> listaU = new ArrayList();
     private File archivo = null;
 
-    public AdminUsuarios() {
+    public AdminUsuarios(String path) {
+         archivo = new File(path);
     }
 
     public ArrayList<Usuarios> getListaU() {
