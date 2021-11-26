@@ -28,7 +28,8 @@ public class Gui extends javax.swing.JFrame {
         usuarios.add(new Admin("Luisillo", "No", 20));
         usuarios.add(new Compradores(dinero, "Latesito", "Sheesh", 20));
         
-   
+        adminU.setListaU(usuarios);
+        adminU.escribirArchivo();
 
     } 
     /**
@@ -815,4 +816,5 @@ public class Gui extends javax.swing.JFrame {
     private javax.swing.JTextField nombreTxtResgister;
     // End of variables declaration//GEN-END:variables
   ArrayList <Usuarios> usuarios = new ArrayList();
+   AdminUsuarios adminU = new AdminUsuarios("./Usuarios.txt");
 }
