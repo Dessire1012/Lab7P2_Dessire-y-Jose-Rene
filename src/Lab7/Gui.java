@@ -10,6 +10,8 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Random;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -51,8 +53,16 @@ public class Gui extends javax.swing.JFrame {
              e.printStackTrace();
         }
         
-        bw.close();
-        fw.close();
+        try {
+            bw.close();
+        } catch (IOException ex) {
+            Logger.getLogger(Gui.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        try {
+            fw.close();
+        } catch (IOException ex) {
+            Logger.getLogger(Gui.class.getName()).log(Level.SEVERE, null, ex);
+        }
        
     /**
      * This method is called from within the constructor to initialize the form.
@@ -680,4 +690,8 @@ public class Gui extends javax.swing.JFrame {
     private java.awt.ScrollPane scrollPane1;
     // End of variables declaration//GEN-END:variables
 ArrayList <Usuarios> usuarios = new ArrayList(); 
+
+    private void initComponents() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }
