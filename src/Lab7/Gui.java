@@ -15,7 +15,6 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
-
 public class Gui extends javax.swing.JFrame {
 
     /**
@@ -24,15 +23,16 @@ public class Gui extends javax.swing.JFrame {
     public Gui() throws IOException {
         initComponents();
         int dinero;
-        dinero = (int)(Math.random() * (8000 - 1000) + 1000);
-        
+        dinero = (int) (Math.random() * (8000 - 1000) + 1000);
+
         usuarios.add(new Admin("Luisillo", "No", 20));
         usuarios.add(new Compradores(dinero, "Latesito", "Sheesh", 20));
-        
+
         adminU.setListaU(usuarios);
         adminU.escribirArchivo();
 
-    } 
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -399,9 +399,8 @@ public class Gui extends javax.swing.JFrame {
                 .addGap(48, 48, 48)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(BotonEliminarAdmin, javax.swing.GroupLayout.DEFAULT_SIZE, 281, Short.MAX_VALUE)
-                    .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jLabel18, javax.swing.GroupLayout.DEFAULT_SIZE, 281, Short.MAX_VALUE)
-                        .addComponent(jComboBoxEliminarAdmin, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(jLabel18, javax.swing.GroupLayout.DEFAULT_SIZE, 281, Short.MAX_VALUE)
+                    .addComponent(jComboBoxEliminarAdmin, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(297, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
@@ -464,9 +463,17 @@ public class Gui extends javax.swing.JFrame {
                 {null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "ID", "Accesorio", "Precio", "Cantidad"
             }
-        ));
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Integer.class, java.lang.String.class, java.lang.Integer.class, java.lang.Integer.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
         jScrollPane2.setViewportView(TablaComprar);
 
         ComprarComprador.setText("Comprar");
@@ -502,9 +509,17 @@ public class Gui extends javax.swing.JFrame {
                 {null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "ID", "Accesorio", "Precio", "Cantidad"
             }
-        ));
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Integer.class, java.lang.String.class, java.lang.Integer.class, java.lang.Integer.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
         jScrollPane3.setViewportView(TablaComprado);
 
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
@@ -677,18 +692,27 @@ public class Gui extends javax.swing.JFrame {
 
         String username = TextoUsername.getText();
         String pass = TextoPassWord.getText();
-        
-        for (Usuarios u: adminU.getListaU()){
-            if (username.equals(u.getUsuario()) && pass.equals(u.getContraseña())){
+
+        for (Usuarios u : adminU.getListaU()) {
+            if (username.equals(u.getUsuario()) && pass.equals(u.getContraseña())) {
                 JOptionPane.showMessageDialog(this, "Usuario encontrado");
+
+                if (u instanceof Compradores) {
+                    CompradorPanel.setVisible(true);
+
+                }
+
+                if (u instanceof Admin) {
+                    AdminPanel.setVisible(true);
+                }
             }
         }
-        
+
     }//GEN-LAST:event_jButton1MouseClicked
 
     private void BotonRegistrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BotonRegistrarMouseClicked
         // TODO add your handling code here:
-    
+
     }//GEN-LAST:event_BotonRegistrarMouseClicked
 
     private void BotonRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonRegistrarActionPerformed
@@ -821,6 +845,6 @@ public class Gui extends javax.swing.JFrame {
     private javax.swing.JTabbedPane jTabbedPane2;
     private javax.swing.JTextField nombreTxtResgister;
     // End of variables declaration//GEN-END:variables
-  ArrayList <Usuarios> usuarios = new ArrayList();
-   AdminUsuarios adminU = new AdminUsuarios("./Usuarios.txt");
+  ArrayList<Usuarios> usuarios = new ArrayList();
+    AdminUsuarios adminU = new AdminUsuarios("./Usuarios.txt");
 }
