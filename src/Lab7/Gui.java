@@ -38,7 +38,7 @@ public class Gui extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         PasswordtxtRegister = new javax.swing.JTextField();
-        scrollPane1 = new java.awt.ScrollPane();
+        BotonREgistrarseRegistrar = new javax.swing.JButton();
         AdminPanel = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
         BotonLogOut = new javax.swing.JButton();
@@ -69,6 +69,20 @@ public class Gui extends javax.swing.JFrame {
         jLabel18 = new javax.swing.JLabel();
         jComboBoxEliminarAdmin = new javax.swing.JComboBox<>();
         NombrePanelAdmin = new javax.swing.JLabel();
+        CompradorPanel = new javax.swing.JPanel();
+        CompradorLabel = new javax.swing.JLabel();
+        NombrelabelComprador1 = new javax.swing.JLabel();
+        BotonLogOut1 = new javax.swing.JButton();
+        jTabbedPane2 = new javax.swing.JTabbedPane();
+        jPanel7 = new javax.swing.JPanel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        TablaComprar = new javax.swing.JTable();
+        ComprarComprador = new javax.swing.JButton();
+        jPanel8 = new javax.swing.JPanel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        TablaComprado = new javax.swing.JTable();
+        jLabel19 = new javax.swing.JLabel();
+        DineroRestanteComprador = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
@@ -98,6 +112,8 @@ public class Gui extends javax.swing.JFrame {
 
         jLabel9.setText("Password");
 
+        BotonREgistrarseRegistrar.setText("Registrarse");
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -107,25 +123,31 @@ public class Gui extends javax.swing.JFrame {
                 .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(149, Short.MAX_VALUE))
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel9)
-                        .addGap(18, 18, 18)
-                        .addComponent(PasswordtxtRegister))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel6)
-                        .addGap(27, 27, 27)
-                        .addComponent(nombreTxtResgister)))
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addContainerGap()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                                .addComponent(jLabel9)
+                                .addGap(18, 18, 18)
+                                .addComponent(PasswordtxtRegister))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(jLabel6)
+                                .addGap(27, 27, 27)
+                                .addComponent(nombreTxtResgister)))
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGap(31, 31, 31)
+                                .addComponent(jLabel7)
+                                .addGap(32, 32, 32))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel8)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel8)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(31, 31, 31)
-                        .addComponent(jLabel7)
-                        .addGap(32, 32, 32)))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(BotonREgistrarseRegistrar, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(3, 3, 3)))
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(EdadFormatedTxtRegister, javax.swing.GroupLayout.DEFAULT_SIZE, 141, Short.MAX_VALUE)
                     .addComponent(UsernametxtRegister))
@@ -149,7 +171,9 @@ public class Gui extends javax.swing.JFrame {
                     .addComponent(jLabel7)
                     .addComponent(jLabel9)
                     .addComponent(PasswordtxtRegister, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(102, 102, 102))
+                .addGap(28, 28, 28)
+                .addComponent(BotonREgistrarseRegistrar, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(29, 29, 29))
         );
 
         javax.swing.GroupLayout RegisterFrameLayout = new javax.swing.GroupLayout(RegisterFrame);
@@ -405,7 +429,123 @@ public class Gui extends javax.swing.JFrame {
                         .addComponent(NombrePanelAdmin))
                     .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 443, Short.MAX_VALUE))
+                .addComponent(jTabbedPane1))
+        );
+
+        CompradorLabel.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        CompradorLabel.setText("Comprador:");
+
+        NombrelabelComprador1.setText("\"NombreComprador\"");
+
+        BotonLogOut1.setText("Log Out");
+
+        jTabbedPane2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
+        TablaComprar.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane2.setViewportView(TablaComprar);
+
+        ComprarComprador.setText("Comprar");
+
+        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
+        jPanel7.setLayout(jPanel7Layout);
+        jPanel7Layout.setHorizontalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel7Layout.createSequentialGroup()
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 663, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(jPanel7Layout.createSequentialGroup()
+                .addGap(242, 242, 242)
+                .addComponent(ComprarComprador, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel7Layout.setVerticalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel7Layout.createSequentialGroup()
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(ComprarComprador, javax.swing.GroupLayout.DEFAULT_SIZE, 62, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        jTabbedPane2.addTab("Comprar", jPanel7);
+
+        TablaComprado.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane3.setViewportView(TablaComprado);
+
+        javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
+        jPanel8.setLayout(jPanel8Layout);
+        jPanel8Layout.setHorizontalGroup(
+            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 663, Short.MAX_VALUE)
+        );
+        jPanel8Layout.setVerticalGroup(
+            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 329, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        jTabbedPane2.addTab("Comprado", jPanel8);
+
+        jLabel19.setText("Dinero Restante:");
+
+        DineroRestanteComprador.setText("\"DineroRestante\"");
+
+        javax.swing.GroupLayout CompradorPanelLayout = new javax.swing.GroupLayout(CompradorPanel);
+        CompradorPanel.setLayout(CompradorPanelLayout);
+        CompradorPanelLayout.setHorizontalGroup(
+            CompradorPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(CompradorPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(CompradorLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(NombrelabelComprador1, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(BotonLogOut1)
+                .addContainerGap())
+            .addComponent(jTabbedPane2)
+            .addGroup(CompradorPanelLayout.createSequentialGroup()
+                .addGap(142, 142, 142)
+                .addComponent(jLabel19)
+                .addGap(130, 130, 130)
+                .addComponent(DineroRestanteComprador)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        CompradorPanelLayout.setVerticalGroup(
+            CompradorPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(CompradorPanelLayout.createSequentialGroup()
+                .addGap(25, 25, 25)
+                .addGroup(CompradorPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(BotonLogOut1)
+                    .addGroup(CompradorPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(CompradorLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(NombrelabelComprador1)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(CompradorPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel19)
+                    .addComponent(DineroRestanteComprador))
+                .addGap(18, 18, 18)
+                .addComponent(jTabbedPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 364, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -604,8 +744,14 @@ public class Gui extends javax.swing.JFrame {
     private javax.swing.JPanel AdminPanel;
     private javax.swing.JButton BotonEliminarAdmin;
     private javax.swing.JButton BotonLogOut;
+    private javax.swing.JButton BotonLogOut1;
     private javax.swing.JButton BotonModificarAdmin;
+    private javax.swing.JButton BotonREgistrarseRegistrar;
     private javax.swing.JButton BotonRegistrar;
+    private javax.swing.JLabel CompradorLabel;
+    private javax.swing.JPanel CompradorPanel;
+    private javax.swing.JButton ComprarComprador;
+    private javax.swing.JLabel DineroRestanteComprador;
     private javax.swing.JFormattedTextField EdadFormatedTxtRegister;
     private javax.swing.JFormattedTextField FormatedTxtCantidadModificarAdmin;
     private javax.swing.JFormattedTextField FormatedTxtCrearAdmin;
@@ -613,9 +759,12 @@ public class Gui extends javax.swing.JFrame {
     private javax.swing.JFormattedTextField FormatedTxtPrecioCrearAdmin;
     private javax.swing.JLabel NombrePanelAdmin;
     private javax.swing.JTextField NombreTxtModificarAdmin;
+    private javax.swing.JLabel NombrelabelComprador1;
     private javax.swing.JTextField PasswordtxtRegister;
     private javax.swing.JPanel RegisterFrame;
     private javax.swing.JTable TablaAccesoriosAdmin;
+    private javax.swing.JTable TablaComprado;
+    private javax.swing.JTable TablaComprar;
     private javax.swing.JTextField TextoPassWord;
     private javax.swing.JTextField TextoUsername;
     private javax.swing.JTextField TxtNombreCrearAdmin;
@@ -634,6 +783,7 @@ public class Gui extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -648,9 +798,13 @@ public class Gui extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
+    private javax.swing.JPanel jPanel7;
+    private javax.swing.JPanel jPanel8;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JTabbedPane jTabbedPane2;
     private javax.swing.JTextField nombreTxtResgister;
-    private java.awt.ScrollPane scrollPane1;
     // End of variables declaration//GEN-END:variables
 }
