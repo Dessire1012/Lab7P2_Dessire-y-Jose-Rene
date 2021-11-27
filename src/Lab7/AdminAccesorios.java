@@ -7,21 +7,21 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class AdminUsuarios {
+public class AdminAccesorios {
 
-    private ArrayList<Usuarios> listaU = new ArrayList();
+    private ArrayList<Accesorios> listaAcc = new ArrayList();
     private File archivo = null;
 
-    public AdminUsuarios(String path) {
+    public AdminAccesorios(String path) {
         archivo = new File(path);
     }
 
-    public ArrayList<Usuarios> getListaU() {
-        return listaU;
+    public ArrayList<Accesorios> getListaAcc() {
+        return listaAcc;
     }
 
-    public void setListaU(ArrayList<Usuarios> listaU) {
-        this.listaU = listaU;
+    public void setListaAcc(ArrayList<Accesorios> listaAcc) {
+        this.listaAcc = listaAcc;
     }
 
     public File getArchivo() {
@@ -36,12 +36,13 @@ public class AdminUsuarios {
         FileWriter fw = null;
         BufferedWriter bw = null;
         try {
-            fw = new FileWriter(archivo, false);
+            fw = new FileWriter(archivo, true);
             bw = new BufferedWriter(fw);
-            for (Usuarios u : listaU) {
-                bw.write(u.getUsuario() + "/");
-                bw.write(u.getContraseña() + "/");
-                bw.write(String.valueOf(u.getEdad()));
+            for (Accesorios A : listaAcc) {
+                bw.write(String.valueOf(A.getID()) + "/");
+                bw.write(A.getNombre() + "/");
+                bw.write(String.valueOf(A.getPrecio()) + "/");
+                bw.write(String.valueOf(A.getCantidad()));
                 bw.newLine();
             }
             bw.flush();
@@ -54,13 +55,13 @@ public class AdminUsuarios {
     //Leer
     public void leerArchivo() {
         Scanner sc = null;
-        listaU = new ArrayList();
+        listaAcc = new ArrayList();
         if (archivo.exists()) {
             try {
                 sc = new Scanner(archivo);
                 sc.useDelimiter("/");
                 while (sc.hasNext()) {
-                    listaU.add(new Usuarios(sc.next(), sc.next(), sc.nextInt())
+                    listaAcc.add(new Accesorios(sc.nextInt(), sc.next(), sc.nextInt(), sc.nextInt())
                     );
                 }
             } catch (Exception ex) {
@@ -69,16 +70,17 @@ public class AdminUsuarios {
         }//FIN IF
     }
 
-    public void escribirArchivoR(String usuario, String contraseña, int edad) throws IOException {
+    public void escribirArchivoR(int ID, String nombre, int precio, int cantidad) throws IOException {
         FileWriter fw = null;
         BufferedWriter bw = null;
         try {
             fw = new FileWriter(archivo, true);
             bw = new BufferedWriter(fw);
 
-            bw.write(usuario + "/");
-            bw.write(contraseña + "/");
-            bw.write(String.valueOf(edad));
+            bw.write(String.valueOf(ID) + "/");
+            bw.write(nombre + "/");
+            bw.write(String.valueOf(precio) + "/");
+            bw.write(String.valueOf(cantidad));
             bw.newLine();
 
             bw.flush();

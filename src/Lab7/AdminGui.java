@@ -9,8 +9,10 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -23,6 +25,7 @@ public class AdminGui extends javax.swing.JFrame {
      */
     public AdminGui() {
         initComponents();
+        
     }
 
     /**
@@ -63,7 +66,6 @@ public class AdminGui extends javax.swing.JFrame {
         BotonEliminarAdmin = new javax.swing.JButton();
         jLabel18 = new javax.swing.JLabel();
         jComboBoxEliminarAdmin = new javax.swing.JComboBox<>();
-        NombrePanelAdmin = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -71,6 +73,11 @@ public class AdminGui extends javax.swing.JFrame {
         jLabel10.setText("Administrador:");
 
         BotonLogOut.setText("Log Out");
+        BotonLogOut.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                BotonLogOutMouseClicked(evt);
+            }
+        });
 
         jTabbedPane1.setToolTipText("");
         jTabbedPane1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -149,8 +156,6 @@ public class AdminGui extends javax.swing.JFrame {
         jLabel17.setText("Cantidad:");
 
         BotonModificarAdmin.setText("Modificar");
-
-        jComboBoxIDAccesorioModificarAdmin.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         NombreTxtModificarAdmin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -254,8 +259,6 @@ public class AdminGui extends javax.swing.JFrame {
         jLabel18.setFont(new java.awt.Font("Times New Roman", 1, 36)); // NOI18N
         jLabel18.setText("ID del Accesorio:");
 
-        jComboBoxEliminarAdmin.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
@@ -282,8 +285,6 @@ public class AdminGui extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Eliminar", jPanel5);
 
-        NombrePanelAdmin.setText("\"NombreAdmin\"");
-
         javax.swing.GroupLayout AdminPanelLayout = new javax.swing.GroupLayout(AdminPanel);
         AdminPanel.setLayout(AdminPanelLayout);
         AdminPanelLayout.setHorizontalGroup(
@@ -291,8 +292,6 @@ public class AdminGui extends javax.swing.JFrame {
             .addGroup(AdminPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(NombrePanelAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(BotonLogOut)
                 .addGap(46, 46, 46))
@@ -303,9 +302,7 @@ public class AdminGui extends javax.swing.JFrame {
             .addGroup(AdminPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(AdminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(AdminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(BotonLogOut)
-                        .addComponent(NombrePanelAdmin))
+                    .addComponent(BotonLogOut)
                     .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jTabbedPane1))
@@ -336,38 +333,50 @@ public class AdminGui extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
-        File acce = null;
-        FileWriter fw = null;
-        BufferedWriter bw = null;
+        
+       
         try {
-            acce = new File("./Accesorios.txt");
-            fw = new FileWriter(acce, true);
-            bw = new BufferedWriter(fw);
-            int ID = 0;
-            String nombre = "";
-            int precio = 0;
-            int cantidad = 0;
-
             
+            int ID = (int) (Math.random() * (1000000 - 100000) + 10000);; 
+            
+            for (Accesorios a: AdminAcc.getListaAcc()){
+                int randomID = (int) (Math.random() * (1000000 - 100000) + 10000);
+                if (a.getID() != ID){
+                    ID = randomID;
+                }
+            }
+                    
+            String nombre = TxtNombreCrearAdmin.getText();
+            int precio = Integer.parseInt(FormatedTxtPrecioCrearAdmin.getText());
+            int cantidad = Integer.parseInt(FormatedTxtCrearAdmin.getText());
+            
+            AdminAcc.escribirArchivoR(ID, nombre, precio, cantidad);
+            JOptionPane.showMessageDialog(this, "Accesorio creado");
+            TxtNombreCrearAdmin.setText("");
+            FormatedTxtPrecioCrearAdmin.setText("");
+            FormatedTxtCrearAdmin.setText("");
 
-            bw.flush();
         } catch (Exception ex) {
+            
         }
-        try {
-            bw.close();
-        } catch (IOException ex) {
-            Logger.getLogger(Gui.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        try {
-            fw.close();
-        } catch (IOException ex) {
-            Logger.getLogger(Gui.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        
     }//GEN-LAST:event_jButton3MouseClicked
 
     private void NombreTxtModificarAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NombreTxtModificarAdminActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_NombreTxtModificarAdminActionPerformed
+
+    private void BotonLogOutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BotonLogOutMouseClicked
+        try {
+            Gui gui = new Gui();
+            gui.setVisible(true);
+            
+        } catch (IOException ex) {
+            Logger.getLogger(AdminGui.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
+    }//GEN-LAST:event_BotonLogOutMouseClicked
 
     /**
      * @param args the command line arguments
@@ -413,7 +422,6 @@ public class AdminGui extends javax.swing.JFrame {
     private javax.swing.JFormattedTextField FormatedTxtCrearAdmin;
     private javax.swing.JFormattedTextField FormatedTxtPrecio;
     private javax.swing.JFormattedTextField FormatedTxtPrecioCrearAdmin;
-    private javax.swing.JLabel NombrePanelAdmin;
     private javax.swing.JTextField NombreTxtModificarAdmin;
     private javax.swing.JTable TablaAccesoriosAdmin;
     private javax.swing.JTextField TxtNombreCrearAdmin;
@@ -436,4 +444,5 @@ public class AdminGui extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTabbedPane jTabbedPane1;
     // End of variables declaration//GEN-END:variables
+AdminAccesorios AdminAcc = new AdminAccesorios("./Accesorios.txt");
 }
