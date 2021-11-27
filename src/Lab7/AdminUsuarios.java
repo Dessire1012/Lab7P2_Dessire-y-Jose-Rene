@@ -69,14 +69,15 @@ public class AdminUsuarios {
         }//FIN IF
     }
 
-    public void escribirArchivoR(String usuario, String contraseña, int edad) throws IOException {
+    public void escribirArchivoR(int dinero, String usuario, String contraseña, int edad) throws IOException {
         FileWriter fw = null;
         BufferedWriter bw = null;
-        listaU.add(new Usuarios(usuario, contraseña, edad));
+        listaU.add(new Compradores(dinero,usuario, contraseña, edad));
         try {
             fw = new FileWriter(archivo, true);
             bw = new BufferedWriter(fw);
 
+            bw.write(dinero + "/");
             bw.write(usuario + "/");
             bw.write(contraseña + "/");
             bw.write(String.valueOf(edad));

@@ -27,8 +27,6 @@ public class AdminGui extends javax.swing.JFrame {
      */
     public AdminGui() {
         initComponents();
-        DefaultComboBoxModel modelo =
-        (DefaultComboBoxModel) jComboBoxIDAccesorioModificarAdmin.getModel();
         
     }
 

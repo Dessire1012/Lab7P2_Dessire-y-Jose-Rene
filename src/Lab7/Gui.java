@@ -206,11 +206,6 @@ public class Gui extends javax.swing.JFrame {
                 BotonRegistrarMouseClicked(evt);
             }
         });
-        BotonRegistrar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BotonRegistrarActionPerformed(evt);
-            }
-        });
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 48)); // NOI18N
         jLabel1.setText("Login");
@@ -305,6 +300,7 @@ public class Gui extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(this, "Usuario encontrado");
 
                 if (u instanceof Compradores) {
+                    CompradorGui Cg = new CompradorGui();
                     Cg.pack();// aparece con el tamano de los botones
                     Cg.setLocationRelativeTo(this);//es para centrar la ventana emergente con la anterior
                     Cg.setVisible(true);
@@ -326,10 +322,6 @@ public class Gui extends javax.swing.JFrame {
         RegistroFrame.setVisible(true);
 
     }//GEN-LAST:event_BotonRegistrarMouseClicked
-
-    private void BotonRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonRegistrarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_BotonRegistrarActionPerformed
 
     private void TextoUsernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TextoUsernameActionPerformed
         // TODO add your handling code here:
@@ -381,6 +373,8 @@ public class Gui extends javax.swing.JFrame {
         String Username = UsernametxtRegister.getText();
         int edad = Integer.parseInt(EdadFormatedTxtRegister.getText());
         boolean Encontrado = false;
+        int dinero;
+        dinero = (int) (Math.random() * (8000 - 1000) + 1000);
 
         for (Usuarios u : adminU.getListaU()) {
             if ((!Username.equals(u.getUsuario())) && (!pass.equals(u.getContraseña()))) {
@@ -392,19 +386,18 @@ public class Gui extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "El Usuario");
         } else {
             try {
-                adminU.escribirArchivoR(Username, pass, edad);
+                adminU.escribirArchivoR(dinero,Username, pass, edad);
             } catch (IOException ex) {
                 Logger.getLogger(Gui.class.getName()).log(Level.SEVERE, null, ex);
             }
             JOptionPane.showMessageDialog(this, "Usuario creado");
 
             RegistroFrame.setVisible(false);
+            CompradorGui Cg = new CompradorGui();
             Cg.pack();// aparece con el tamano de los botones
             Cg.setLocationRelativeTo(this);//es para centrar la ventana emergente con la anterior
             Cg.setVisible(true);
         }
-
-
     }//GEN-LAST:event_BotonREgistrarseRegistrarMouseClicked
 
     /**
@@ -472,6 +465,6 @@ public class Gui extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
   ArrayList<Usuarios> usuarios = new ArrayList();
     AdminUsuarios adminU = new AdminUsuarios("./Usuarios.txt");
-    CompradorGui Cg = new CompradorGui();
+    
     AdminGui Ag = new AdminGui();
 }

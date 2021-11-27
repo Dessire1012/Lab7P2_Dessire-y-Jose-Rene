@@ -59,10 +59,10 @@ public class AdminAccesorios {
         if (archivo.exists()) {
             try {
                 sc = new Scanner(archivo);
-                sc.useDelimiter("/");
+                sc.useDelimiter(",");
                 while (sc.hasNext()) {
                     listaAcc.add(new Accesorios(sc.nextInt(), sc.next(), sc.nextInt(), sc.nextInt())
-                    );
+                );
                 }
             } catch (Exception ex) {
             }
@@ -78,9 +78,9 @@ public class AdminAccesorios {
             fw = new FileWriter(archivo, true);
             bw = new BufferedWriter(fw);
            
-            bw.write(String.valueOf(ID) + "/");
-            bw.write(nombre + "/");
-            bw.write(String.valueOf(precio) + "/");
+            bw.write(String.valueOf(ID) + ",");
+            bw.write(nombre + ",");
+            bw.write(String.valueOf(precio) + ",");
             bw.write(String.valueOf(cantidad));
             bw.newLine(); 
             

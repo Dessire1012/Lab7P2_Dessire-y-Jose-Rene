@@ -5,6 +5,10 @@
  */
 package Lab7;
 
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author jrgir
@@ -52,6 +56,11 @@ public class CompradorGui extends javax.swing.JFrame {
         BotonLogOut1.setText("Log Out");
 
         jTabbedPane2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jTabbedPane2.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                jTabbedPane2StateChanged(evt);
+            }
+        });
 
         TablaComprar.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -200,6 +209,24 @@ public class CompradorGui extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jTabbedPane2StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jTabbedPane2StateChanged
+        DefaultTableModel modelo
+                    = (DefaultTableModel) TablaComprar.getModel();
+        modelo.setRowCount(0);
+        
+        AdminAcc.leerArchivo();
+        JOptionPane.showMessageDialog(this, AdminAcc.getListaAcc());
+ 
+        for (Accesorios a: AdminAcc.getListaAcc()){
+            Object  [] newrow = {a.getID(),
+            a.getNombre(),
+            a.getPrecio(),
+            a.getCantidad()};
+            
+            modelo.addRow(newrow);
+        }
+    }//GEN-LAST:event_jTabbedPane2StateChanged
+
     /**
      * @param args the command line arguments
      */
@@ -251,4 +278,5 @@ public class CompradorGui extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTabbedPane jTabbedPane2;
     // End of variables declaration//GEN-END:variables
+  AdminAccesorios AdminAcc = new AdminAccesorios("./Accesorios.txt");
 }
