@@ -301,7 +301,12 @@ public class Gui extends javax.swing.JFrame {
 
                 if (u instanceof Compradores) {
                     ing.add(u);
-                    Ingreso.escribirArchivo(ing);
+                    Ingreso.setListaU(ing);
+                    try {
+                        Ingreso.escribirArchivo();
+                    } catch (IOException ex) {
+                        Logger.getLogger(Gui.class.getName()).log(Level.SEVERE, null, ex);
+                    }
                     CompradorGui Cg = new CompradorGui();
                     Cg.pack();// aparece con el tamano de los botones
                     Cg.setLocationRelativeTo(this);//es para centrar la ventana emergente con la anterior
@@ -389,7 +394,7 @@ public class Gui extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "El Usuario");
         } else {
             try {
-                adminU.escribirArchivoR(dinero,Username, pass, edad);
+                adminU.escribirArchivoR(Username, pass, edad);
             } catch (IOException ex) {
                 Logger.getLogger(Gui.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -469,6 +474,6 @@ public class Gui extends javax.swing.JFrame {
   ArrayList<Usuarios> usuarios = new ArrayList();
     AdminUsuarios adminU = new AdminUsuarios("./Usuarios.txt");
     AdminGui Ag = new AdminGui();
-    ArrayList<Usuarios> ing = new ArrayList();
+    ArrayList <Usuarios> ing = new ArrayList();
     AdminUsuarios Ingreso = new AdminUsuarios("./Ingreso");
 }
