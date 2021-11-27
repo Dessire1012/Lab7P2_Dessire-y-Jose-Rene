@@ -1,0 +1,7 @@
+Accesorios Nintendo
+Factura	2021/11/26
+Switch	250	5
+Subtotal:250.0
+Impuesto:37.5
+Total:287.5
+

@@ -5,7 +5,10 @@
  */
 package Lab7;
 
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -20,10 +23,10 @@ public class CompradorGui extends javax.swing.JFrame {
      */
     public CompradorGui() {
         initComponents();
-         AdminUsuarios Ingreso = new AdminUsuarios("./Ingreso");
-         Ingreso.leerArchivo();
-         NombrelabelComprador1.setText(Ingreso.getListaU().get(0).getUsuario());
-         DineroRestanteComprador.setText(String.valueOf(dinero));
+        AdminUsuarios Ingreso = new AdminUsuarios("./Ingreso");
+        Ingreso.leerArchivo();
+        NombrelabelComprador1.setText(Ingreso.getListaU().get(0).getUsuario());
+        DineroRestanteComprador.setText(String.valueOf(dinero));
 
     }
 
@@ -59,6 +62,11 @@ public class CompradorGui extends javax.swing.JFrame {
         NombrelabelComprador1.setText("\"NombreComprador\"");
 
         BotonLogOut1.setText("Log Out");
+        BotonLogOut1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotonLogOut1ActionPerformed(evt);
+            }
+        });
 
         jTabbedPane2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jTabbedPane2.addChangeListener(new javax.swing.event.ChangeListener() {
@@ -221,30 +229,81 @@ public class CompradorGui extends javax.swing.JFrame {
 
     private void jTabbedPane2StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jTabbedPane2StateChanged
         DefaultTableModel modelo
-                    = (DefaultTableModel) TablaComprar.getModel();
+                = (DefaultTableModel) TablaComprar.getModel();
         modelo.setRowCount(0);
-        
+
         AdminAcc.leerArchivo();
- 
-        for (Accesorios a: AdminAcc.getListaAcc()){
-            Object  [] newrow = {a.getID(),
-            a.getNombre(),
-            a.getPrecio(),
-            a.getCantidad()};
-            
+
+        for (Accesorios a : AdminAcc.getListaAcc()) {
+            Object[] newrow = {a.getID(),
+                a.getNombre(),
+                a.getPrecio(),
+                a.getCantidad()};
+
             modelo.addRow(newrow);
         }
+        DefaultTableModel modelocomprado
+                = (DefaultTableModel) TablaComprado.getModel();
+        modelocomprado.setRowCount(0);
+
+        for (Accesorios acce : acces) {
+            
+            Object[] newrow = {acce.getID(),
+                acce.getNombre(),
+                acce.getPrecio(),
+                acce.getCantidad()};
+              modelocomprado.addRow(newrow);
+        }
+
     }//GEN-LAST:event_jTabbedPane2StateChanged
 
     private void ComprarCompradorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ComprarCompradorMouseClicked
         if (TablaComprar.getSelectedRow() >= 0) {
             DefaultTableModel modelo
                     = (DefaultTableModel) TablaComprar.getModel();
+
+            int Id = (int) (TablaComprar.getValueAt(TablaComprar.getSelectedRow(), 0));
+            String juego = (String) (TablaComprar.getValueAt(TablaComprar.getSelectedRow(), 1));
+            int precio = (int) (TablaComprar.getValueAt(TablaComprar.getSelectedRow(), 2));
+            int cant = (int) (TablaComprar.getValueAt(TablaComprar.getSelectedRow(), 3));
+
+            Accesorios a = new Accesorios(Id, juego, precio, cant);
+            
+            acces.add(a);
+            
             modelo.removeRow(TablaComprar.getSelectedRow());
             TablaComprar.setModel(modelo);
-            
+
         }
     }//GEN-LAST:event_ComprarCompradorMouseClicked
+
+    private void BotonLogOut1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonLogOut1ActionPerformed
+        // TODO add your handling code here:
+        
+        for (Accesorios acce : acces) {
+            
+            String name= acce.getNombre();
+            int price = acce.getPrecio();
+            int cant = acce.getCantidad();
+            
+            try {
+                Fac.escribirArchivoR(name, price, cant);
+            } catch (IOException ex) {
+                Logger.getLogger(CompradorGui.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+   
+     
+        try {
+            Gui gui= new Gui();
+            gui.setVisible(true);
+               this.setVisible(false);
+            
+        } catch (IOException ex) {
+            Logger.getLogger(CompradorGui.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }//GEN-LAST:event_BotonLogOut1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -298,6 +357,8 @@ public class CompradorGui extends javax.swing.JFrame {
     private javax.swing.JTabbedPane jTabbedPane2;
     // End of variables declaration//GEN-END:variables
   AdminAccesorios AdminAcc = new AdminAccesorios("./Accesorios.txt");
+    ArrayList<Accesorios> acces = new ArrayList();
+    double dinero = (int) (Math.random() * (8000 - 1000) + 1000);
+    AdminFactura Fac= new AdminFactura("./Factura.txt");
 
-double dinero = (int) (Math.random() * (8000 - 1000) + 1000);
 }
