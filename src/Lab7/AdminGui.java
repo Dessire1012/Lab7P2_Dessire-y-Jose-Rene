@@ -27,7 +27,12 @@ public class AdminGui extends javax.swing.JFrame {
      */
     public AdminGui() {
         initComponents();
-        
+
+        AdminUsuarios Ingreso = new AdminUsuarios("./Ingreso");
+
+        Ingreso.leerArchivo();
+
+        NombrelabelAdmin.setText(Ingreso.getListaU().get(0).getUsuario());
     }
 
     /**
@@ -68,6 +73,7 @@ public class AdminGui extends javax.swing.JFrame {
         BotonEliminarAdmin = new javax.swing.JButton();
         jLabel18 = new javax.swing.JLabel();
         jComboBoxEliminarAdmin = new javax.swing.JComboBox<>();
+        NombrelabelAdmin = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -129,7 +135,7 @@ public class AdminGui extends javax.swing.JFrame {
                             .addComponent(FormatedTxtPrecioCrearAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(45, 45, 45)
                 .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(102, Short.MAX_VALUE))
+                .addContainerGap(132, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -261,7 +267,7 @@ public class AdminGui extends javax.swing.JFrame {
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 622, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 652, Short.MAX_VALUE)
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -272,6 +278,11 @@ public class AdminGui extends javax.swing.JFrame {
 
         BotonEliminarAdmin.setForeground(new java.awt.Color(255, 102, 102));
         BotonEliminarAdmin.setText("Eliminar");
+        BotonEliminarAdmin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotonEliminarAdminActionPerformed(evt);
+            }
+        });
 
         jLabel18.setFont(new java.awt.Font("Times New Roman", 1, 36)); // NOI18N
         jLabel18.setText("ID del Accesorio:");
@@ -286,7 +297,7 @@ public class AdminGui extends javax.swing.JFrame {
                     .addComponent(BotonEliminarAdmin, javax.swing.GroupLayout.DEFAULT_SIZE, 281, Short.MAX_VALUE)
                     .addComponent(jLabel18, javax.swing.GroupLayout.DEFAULT_SIZE, 281, Short.MAX_VALUE)
                     .addComponent(jComboBoxEliminarAdmin, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(297, Short.MAX_VALUE))
+                .addContainerGap(327, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -302,6 +313,8 @@ public class AdminGui extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Eliminar", jPanel5);
 
+        NombrelabelAdmin.setText("\"NombreLabelAdmin\"");
+
         javax.swing.GroupLayout AdminPanelLayout = new javax.swing.GroupLayout(AdminPanel);
         AdminPanel.setLayout(AdminPanelLayout);
         AdminPanelLayout.setHorizontalGroup(
@@ -309,6 +322,8 @@ public class AdminGui extends javax.swing.JFrame {
             .addGroup(AdminPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(NombrelabelAdmin)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(BotonLogOut)
                 .addGap(46, 46, 46))
@@ -320,7 +335,9 @@ public class AdminGui extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(AdminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(BotonLogOut)
-                    .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(AdminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(NombrelabelAdmin)))
                 .addGap(18, 18, 18)
                 .addComponent(jTabbedPane1))
         );
@@ -329,7 +346,7 @@ public class AdminGui extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 631, Short.MAX_VALUE)
+            .addGap(0, 661, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
@@ -350,23 +367,22 @@ public class AdminGui extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
-        
-       
+
         try {
-            
-            int ID = (int) (Math.random() * (1000000 - 100000) + 10000);; 
-            
-            for (Accesorios a: AdminAcc.getListaAcc()){
+
+            int ID = (int) (Math.random() * (1000000 - 100000) + 10000);;
+
+            for (Accesorios a : AdminAcc.getListaAcc()) {
                 int randomID = (int) (Math.random() * (1000000 - 100000) + 10000);
-                if (a.getID() != ID){
+                if (a.getID() != ID) {
                     ID = randomID;
                 }
             }
-                    
+
             String nombre = TxtNombreCrearAdmin.getText();
             int precio = Integer.parseInt(FormatedTxtPrecioCrearAdmin.getText());
             int cantidad = Integer.parseInt(FormatedTxtCrearAdmin.getText());
-            
+
             AdminAcc.escribirArchivoR(ID, nombre, precio, cantidad);
             JOptionPane.showMessageDialog(this, "Accesorio creado");
             TxtNombreCrearAdmin.setText("");
@@ -374,9 +390,9 @@ public class AdminGui extends javax.swing.JFrame {
             FormatedTxtCrearAdmin.setText("");
 
         } catch (Exception ex) {
-            
+
         }
-        
+
     }//GEN-LAST:event_jButton3MouseClicked
 
     private void NombreTxtModificarAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NombreTxtModificarAdminActionPerformed
@@ -387,45 +403,73 @@ public class AdminGui extends javax.swing.JFrame {
         try {
             Gui gui = new Gui();
             gui.setVisible(true);
-            
+
         } catch (IOException ex) {
             Logger.getLogger(AdminGui.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-        
+
+
     }//GEN-LAST:event_BotonLogOutMouseClicked
 
     private void jTabbedPane1StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jTabbedPane1StateChanged
-        DefaultComboBoxModel modelo =
-        (DefaultComboBoxModel) jComboBoxIDAccesorioModificarAdmin.getModel();
-        
-        for (Accesorios a: AdminAcc.getListaAcc()){
+        DefaultComboBoxModel modelo
+                = (DefaultComboBoxModel) jComboBoxIDAccesorioModificarAdmin.getModel();
+modelo.removeAllElements();
+
+        for (Accesorios a : AdminAcc.getListaAcc()) {
+
             modelo.addElement((a.getID()));
+
+      
+
         }
-        
-        
-          DefaultTableModel modelo2
-                    = (DefaultTableModel) TablaAccesoriosAdmin.getModel();
+
+        DefaultTableModel modelo2
+                = (DefaultTableModel) TablaAccesoriosAdmin.getModel();
         modelo2.setRowCount(0);
-        
-        for (Accesorios a: AdminAcc.getListaAcc()){
-            Object  [] newrow = {a.getID(),
-            a.getNombre(),
-            a.getPrecio(),
-            a.getCantidad()};
-            
+
+        for (Accesorios a : AdminAcc.getListaAcc()) {
+            Object[] newrow = {a.getID(),
+                a.getNombre(),
+                a.getPrecio(),
+                a.getCantidad()};
+
             modelo2.addRow(newrow);
         }
-       
-        DefaultComboBoxModel modelo3 =
-        (DefaultComboBoxModel) jComboBoxEliminarAdmin.getModel();
+
+        DefaultComboBoxModel modelo3
+                = (DefaultComboBoxModel) jComboBoxEliminarAdmin.getModel();
+
+        modelo3.removeAllElements();
         
-        for (Accesorios a: AdminAcc.getListaAcc()){
+        for (Accesorios a : AdminAcc.getListaAcc()) {
             modelo3.addElement((a.getID()));
         }
-        
-        
+
+
     }//GEN-LAST:event_jTabbedPane1StateChanged
+
+    private void BotonEliminarAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonEliminarAdminActionPerformed
+        // TODO add your handling code here:
+
+       // jComboBoxEliminarAdmin.getSelectedItem();
+        for (int i = 0; i < AdminAcc.getListaAcc().size(); i++) {
+
+            if (jComboBoxEliminarAdmin.getSelectedItem().equals(AdminAcc.getListaAcc().get(i).getID())) {
+                try {
+                  //  AdminAcc.leerArchivo();
+                    AdminAcc.getListaAcc().remove(i);
+                    AdminAcc.escribirArchivo();
+                    
+                } catch (IOException ex) {
+                    Logger.getLogger(AdminGui.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        }
+
+        //tf_edad_maxima.setText(maxima_edad());               
+
+    }//GEN-LAST:event_BotonEliminarAdminActionPerformed
 
     /**
      * @param args the command line arguments
@@ -472,6 +516,7 @@ public class AdminGui extends javax.swing.JFrame {
     private javax.swing.JFormattedTextField FormatedTxtPrecio;
     private javax.swing.JFormattedTextField FormatedTxtPrecioCrearAdmin;
     private javax.swing.JTextField NombreTxtModificarAdmin;
+    private javax.swing.JLabel NombrelabelAdmin;
     private javax.swing.JTable TablaAccesoriosAdmin;
     private javax.swing.JTextField TxtNombreCrearAdmin;
     private javax.swing.JButton jButton3;
