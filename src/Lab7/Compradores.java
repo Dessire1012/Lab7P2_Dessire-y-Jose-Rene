@@ -23,6 +23,10 @@ public class Compradores extends Usuarios{
     public void setListaComprados(ArrayList<Accesorios> listaComprados) {
         this.listaComprados = listaComprados;
     }
+    
+    public void addListComprados (Accesorios acc){
+        listaComprados.add(acc);
+    }
 
     public int getCantidadDinero() {
         return cantidadDinero;

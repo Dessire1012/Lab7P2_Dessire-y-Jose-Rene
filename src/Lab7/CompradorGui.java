@@ -20,7 +20,11 @@ public class CompradorGui extends javax.swing.JFrame {
      */
     public CompradorGui() {
         initComponents();
-         AdminUsuarios adminU = new AdminUsuarios("./Usuarios.txt");
+         AdminUsuarios Ingreso = new AdminUsuarios("./Ingreso");
+         Ingreso.leerArchivo();
+         NombrelabelComprador1.setText(Ingreso.getListaU().get(0).getUsuario());
+         DineroRestanteComprador.setText(String.valueOf(((Compradores)Ingreso.getListaU().get(0)).getCantidadDinero()) );
+
     }
 
     /**
@@ -85,6 +89,11 @@ public class CompradorGui extends javax.swing.JFrame {
         jScrollPane2.setViewportView(TablaComprar);
 
         ComprarComprador.setText("Comprar");
+        ComprarComprador.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ComprarCompradorMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
@@ -226,6 +235,16 @@ public class CompradorGui extends javax.swing.JFrame {
             modelo.addRow(newrow);
         }
     }//GEN-LAST:event_jTabbedPane2StateChanged
+
+    private void ComprarCompradorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ComprarCompradorMouseClicked
+        if (TablaComprar.getSelectedRow() >= 0) {
+            DefaultTableModel modelo
+                    = (DefaultTableModel) TablaComprar.getModel();
+            modelo.removeRow(TablaComprar.getSelectedRow());
+            TablaComprar.setModel(modelo);
+            
+        }
+    }//GEN-LAST:event_ComprarCompradorMouseClicked
 
     /**
      * @param args the command line arguments

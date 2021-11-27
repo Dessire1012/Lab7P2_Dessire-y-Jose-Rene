@@ -41,7 +41,7 @@ public class AdminUsuarios {
             for (Usuarios u : listaU) {
                 bw.write(u.getUsuario() + "/");
                 bw.write(u.getContraseña() + "/");
-                bw.write(String.valueOf(u.getEdad()));
+                bw.write(String.valueOf(u.getEdad()) + "/");
                 bw.newLine();
             }
             bw.flush();

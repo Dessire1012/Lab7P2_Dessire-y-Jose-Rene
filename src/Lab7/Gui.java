@@ -294,6 +294,8 @@ public class Gui extends javax.swing.JFrame {
 
         String username = TextoUsername.getText();
         String pass = TextoPassWord.getText();
+        int dinero;
+        dinero = (int) (Math.random() * (8000 - 1000) + 1000);
 
         for (Usuarios u : adminU.getListaU()) {
             if (username.equals(u.getUsuario()) && pass.equals(u.getContraseña())) {
@@ -311,12 +313,14 @@ public class Gui extends javax.swing.JFrame {
                     Cg.pack();// aparece con el tamano de los botones
                     Cg.setLocationRelativeTo(this);//es para centrar la ventana emergente con la anterior
                     Cg.setVisible(true);
+                    ((Compradores) u).setCantidadDinero(dinero);
                 }
 
                 if (u instanceof Admin) {
                     Ag.pack();// aparece con el tamano de los botones
                     Ag.setLocationRelativeTo(this);//es para centrar la ventana emergente con la anterior
                     Ag.setVisible(true);
+                    
                     
                 }
             }
