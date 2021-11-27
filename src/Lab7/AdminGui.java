@@ -457,10 +457,11 @@ modelo.removeAllElements();
 
             if (jComboBoxEliminarAdmin.getSelectedItem().equals(AdminAcc.getListaAcc().get(i).getID())) {
                 try {
-                  //  AdminAcc.leerArchivo();
+                    AdminAcc.leerArchivo();
                     AdminAcc.getListaAcc().remove(i);
                     AdminAcc.escribirArchivo();
                     
+                    JOptionPane.showMessageDialog(this, "Accesorio Eliminado");
                 } catch (IOException ex) {
                     Logger.getLogger(AdminGui.class.getName()).log(Level.SEVERE, null, ex);
                 }
