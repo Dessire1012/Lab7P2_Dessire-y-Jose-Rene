@@ -23,7 +23,7 @@ public class CompradorGui extends javax.swing.JFrame {
          AdminUsuarios Ingreso = new AdminUsuarios("./Ingreso");
          Ingreso.leerArchivo();
          NombrelabelComprador1.setText(Ingreso.getListaU().get(0).getUsuario());
-         DineroRestanteComprador.setText(String.valueOf(((Compradores)Ingreso.getListaU().get(0)).getCantidadDinero()) );
+         DineroRestanteComprador.setText(String.valueOf(dinero));
 
     }
 
@@ -298,4 +298,6 @@ public class CompradorGui extends javax.swing.JFrame {
     private javax.swing.JTabbedPane jTabbedPane2;
     // End of variables declaration//GEN-END:variables
   AdminAccesorios AdminAcc = new AdminAccesorios("./Accesorios.txt");
+
+double dinero = (int) (Math.random() * (8000 - 1000) + 1000);
 }
