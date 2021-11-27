@@ -12,6 +12,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 
 /**
@@ -25,6 +26,8 @@ public class AdminGui extends javax.swing.JFrame {
      */
     public AdminGui() {
         initComponents();
+        DefaultComboBoxModel modelo =
+        (DefaultComboBoxModel) jComboBoxIDAccesorioModificarAdmin.getModel();
         
     }
 
@@ -82,6 +85,11 @@ public class AdminGui extends javax.swing.JFrame {
         jTabbedPane1.setToolTipText("");
         jTabbedPane1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jTabbedPane1.setRequestFocusEnabled(false);
+        jTabbedPane1.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                jTabbedPane1StateChanged(evt);
+            }
+        });
 
         jLabel14.setText("Cantidad:");
 
@@ -235,9 +243,17 @@ public class AdminGui extends javax.swing.JFrame {
                 {null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "ID", "Accesorio", "Precio", "Cantidad"
             }
-        ));
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Integer.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Integer.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
         jScrollPane1.setViewportView(TablaAccesoriosAdmin);
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
@@ -377,6 +393,16 @@ public class AdminGui extends javax.swing.JFrame {
         
         
     }//GEN-LAST:event_BotonLogOutMouseClicked
+
+    private void jTabbedPane1StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jTabbedPane1StateChanged
+        DefaultComboBoxModel modelo =
+        (DefaultComboBoxModel) jComboBoxIDAccesorioModificarAdmin.getModel();
+        
+        for (Accesorios a: AdminAcc.getListaAcc()){
+            modelo.addElement((a.getID()));
+        }
+        
+    }//GEN-LAST:event_jTabbedPane1StateChanged
 
     /**
      * @param args the command line arguments

@@ -73,15 +73,17 @@ public class AdminAccesorios {
     public void escribirArchivoR(int ID, String nombre, int precio, int cantidad) throws IOException {
         FileWriter fw = null;
         BufferedWriter bw = null;
+        listaAcc.add(new Accesorios(ID, nombre, precio, cantidad));
         try {
             fw = new FileWriter(archivo, true);
             bw = new BufferedWriter(fw);
-
+           
             bw.write(String.valueOf(ID) + "/");
             bw.write(nombre + "/");
             bw.write(String.valueOf(precio) + "/");
             bw.write(String.valueOf(cantidad));
-            bw.newLine();
+            bw.newLine(); 
+            
 
             bw.flush();
         } catch (Exception ex) {
