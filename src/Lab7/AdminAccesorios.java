@@ -82,7 +82,7 @@ public class AdminAccesorios {
             bw.write(String.valueOf(ID) + ",");
             bw.write(nombre + ",");
             bw.write(String.valueOf(precio) + ",");
-            bw.write(String.valueOf(cantidad));
+            bw.write(String.valueOf(cantidad)+ ",");
             bw.newLine(); 
             
 

@@ -80,7 +80,7 @@ public class AdminUsuarios {
             bw.write(dinero + "/");
             bw.write(usuario + "/");
             bw.write(contraseña + "/");
-            bw.write(String.valueOf(edad));
+            bw.write(String.valueOf(edad)+ "/");
             bw.newLine();
 
             bw.flush();
