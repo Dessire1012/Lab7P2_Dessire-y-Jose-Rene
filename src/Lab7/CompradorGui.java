@@ -20,6 +20,7 @@ public class CompradorGui extends javax.swing.JFrame {
      */
     public CompradorGui() {
         initComponents();
+         AdminUsuarios adminU = new AdminUsuarios("./Usuarios.txt");
     }
 
     /**
@@ -215,7 +216,6 @@ public class CompradorGui extends javax.swing.JFrame {
         modelo.setRowCount(0);
         
         AdminAcc.leerArchivo();
-        JOptionPane.showMessageDialog(this, AdminAcc.getListaAcc());
  
         for (Accesorios a: AdminAcc.getListaAcc()){
             Object  [] newrow = {a.getID(),

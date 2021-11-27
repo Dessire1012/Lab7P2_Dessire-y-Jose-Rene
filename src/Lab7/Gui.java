@@ -300,6 +300,8 @@ public class Gui extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(this, "Usuario encontrado");
 
                 if (u instanceof Compradores) {
+                    ing.add(u);
+                    Ingreso.escribirArchivo(ing);
                     CompradorGui Cg = new CompradorGui();
                     Cg.pack();// aparece con el tamano de los botones
                     Cg.setLocationRelativeTo(this);//es para centrar la ventana emergente con la anterior
@@ -310,6 +312,7 @@ public class Gui extends javax.swing.JFrame {
                     Ag.pack();// aparece con el tamano de los botones
                     Ag.setLocationRelativeTo(this);//es para centrar la ventana emergente con la anterior
                     Ag.setVisible(true);
+                    
                 }
             }
         }
@@ -465,6 +468,7 @@ public class Gui extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
   ArrayList<Usuarios> usuarios = new ArrayList();
     AdminUsuarios adminU = new AdminUsuarios("./Usuarios.txt");
-    
     AdminGui Ag = new AdminGui();
+    ArrayList<Usuarios> ing = new ArrayList();
+    AdminUsuarios Ingreso = new AdminUsuarios("./Ingreso");
 }

@@ -65,7 +65,7 @@ public class AdminAccesorios {
                 );
                 }
             } catch (Exception ex) {
-                 ex.printStackTrace();
+                
             }
             sc.close();
         }//FIN IF
