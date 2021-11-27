@@ -14,6 +14,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -401,6 +402,28 @@ public class AdminGui extends javax.swing.JFrame {
         for (Accesorios a: AdminAcc.getListaAcc()){
             modelo.addElement((a.getID()));
         }
+        
+        
+          DefaultTableModel modelo2
+                    = (DefaultTableModel) TablaAccesoriosAdmin.getModel();
+        modelo2.setRowCount(0);
+        
+        for (Accesorios a: AdminAcc.getListaAcc()){
+            Object  [] newrow = {a.getID(),
+            a.getNombre(),
+            a.getPrecio(),
+            a.getCantidad()};
+            
+            modelo2.addRow(newrow);
+        }
+       
+        DefaultComboBoxModel modelo3 =
+        (DefaultComboBoxModel) jComboBoxEliminarAdmin.getModel();
+        
+        for (Accesorios a: AdminAcc.getListaAcc()){
+            modelo3.addElement((a.getID()));
+        }
+        
         
     }//GEN-LAST:event_jTabbedPane1StateChanged
 

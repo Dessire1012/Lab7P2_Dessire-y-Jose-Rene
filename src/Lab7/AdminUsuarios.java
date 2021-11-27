@@ -77,12 +77,10 @@ public class AdminUsuarios {
             fw = new FileWriter(archivo, true);
             bw = new BufferedWriter(fw);
 
-           
-                bw.write(usuario + "/");
-                bw.write(contraseña + "/");
-                bw.write(String.valueOf(edad));
-                bw.newLine();
-            
+            bw.write(usuario + "/");
+            bw.write(contraseña + "/");
+            bw.write(String.valueOf(edad));
+            bw.newLine();
 
             bw.flush();
         } catch (Exception ex) {
